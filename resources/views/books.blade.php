@@ -23,6 +23,17 @@
 							<div class="col-sm-6">
 								<input type="text" name="name" id="book-name" class="form-control" value="{{ old('book') }}">
 							</div>
+							
+						</div>
+
+						<!-- Book Code -->
+						<div class="form-group">
+							<label for="task-name" class="col-sm-3 control-label">Code</label>
+
+							<div class="col-sm-6">
+								<input type="text" name="code" id="book-code" class="form-control" value="{{ old('book') }}">
+							</div>
+							
 						</div>
 
 						<!-- Add Book Button -->
@@ -54,7 +65,8 @@
 								@foreach ($books as $book)
 									<tr>
 										<td class="table-text"><div>{{ $book->title }}</div></td>
-
+										<td class="table-text"><div>{{ $book->code }}</div></td>
+										<td class="table-text"><div>{{ $book->created_at }}</div></td>
 										<!-- Task Delete Button -->
 										<td>
 											<form action="/book/{{ $book->id }}" method="POST">

@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\book;
+use App\Models\Book;
+use App\Http\Controllers\BooksController;
 use Illuminate\Http\Request;
 
 /*
@@ -15,13 +16,13 @@ use Illuminate\Http\Request;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 Route::get('/', function () {
-    
-    $books = book::all();
-    var_dump($books); exit;
-    return view('books',['books'=> $books]);
+    return view('welcome');
 });
+
+// Route::get('/books', function () {
+//     $books = Book::all();
+//     return view('books',['books'=> $books]);
+// });
+Route::get('/books',[BooksController::class,'BookList']);
+Route::post('/book',[BooksController::class,'BookCreate']);
