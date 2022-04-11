@@ -30,7 +30,9 @@ Route::post('/book',[BooksController::class,'BookCreate']);
 Route::get('/users/addUser',[UsersController::class,'addUser']);
 Route::post('/users/confirmUser',[UsersController::class,'userConfirm']);
 Route::post('/users/completeUser',[UsersController::class,'userComplete']);
+
 //ログイン
-Route::get('/users/login',function() {
-    return view('/users/login');
+Route::get('login',function() {
+    return view('login');
 });
+Route::post('/mypage',[UsersController::class,'userLogin']);
