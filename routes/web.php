@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Book;
 use App\Http\Controllers\BooksController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\mypageController;
 use Illuminate\Http\Request;
 
 /*
@@ -36,3 +37,5 @@ Route::get('login',function() {
     return view('login');
 });
 Route::post('/mypage',[UsersController::class,'userLogin']);
+// // ログインユーザーの一覧を取得
+Route::get('/mypage',[mypageController::class,"mypageList"]);

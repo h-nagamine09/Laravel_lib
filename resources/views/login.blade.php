@@ -31,7 +31,7 @@
 							<label for="task-name" class="col-sm-3 control-label">Password</label>
 
 							<div class="col-sm-6">
-								<input type="text" name="Password" id="password" class="form-control" value="{{ old('password') }}">
+								<input type="text" name="password" id="password" class="form-control" value="{{ old('password') }}">
 							</div>
 							
 						</div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use validator;
 
 class UsersController extends Controller
@@ -39,12 +40,19 @@ class UsersController extends Controller
     }
 // ログイン処理
     public function userLogin(Request $request) {
-        $request_data = $request->all();
-        $request->session()->put('user_data',$request_data);
-        $user_data = $request->session()->get('user_data');
+        $user_data = $request->all();
+        $mail = $request->mail;
+        $password = $request->password;
         // $params = ['mail' =>$user_data['mail'],'password'=>$user_data['password']];
+        $user = User::where('email',"=",$mail)->where('password',"=",$password)->first();
+        if ($user!=null) { 
+            Session::put('user_id',$user['id']);
+            $login_user = User::where('id','=',$user['id'])->first();
+            return view('mypage',compact('login_user',$login_user));
+        } else {
+            return view('login');
+        }
 
-        $user = User::select('select * from users where email = 111 andWhere = 111');
-        var_dump($user);exit;
     }
+
 }
