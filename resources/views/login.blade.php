@@ -13,7 +13,7 @@
 					@include('common.errors')
 
 					<!-- New Login Form -->
-					<form action="/book" method="POST" class="form-horizontal">
+					<form action="/mypage" method="POST" class="form-horizontal">
 						{{ csrf_field() }}
 
 						<!-- Login ID -->
@@ -21,7 +21,7 @@
 							<label for="task-name" class="col-sm-3 control-label">Mail</label>
 
 							<div class="col-sm-6">
-								<input type="text" name="mail" id="mail" class="form-control" value="{{ old('book') }}">
+								<input type="text" name="mail" id="mail" class="form-control" value="{{ old('mail') }}">
 							</div>
 							
 						</div>
@@ -31,7 +31,7 @@
 							<label for="task-name" class="col-sm-3 control-label">Password</label>
 
 							<div class="col-sm-6">
-								<input type="text" name="Password" id="password" class="form-control" value="{{ old('book') }}">
+								<input type="text" name="password" id="password" class="form-control" value="{{ old('password') }}">
 							</div>
 							
 						</div>
